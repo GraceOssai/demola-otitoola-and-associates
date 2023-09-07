@@ -15,3 +15,8 @@
   align-items: center;
   text-decoration: none;
 }
+
+.propButton{
+  background-color: green;
+  color: red;
+}

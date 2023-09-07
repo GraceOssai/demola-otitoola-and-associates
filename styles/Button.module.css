@@ -1,3 +1,13 @@
-.button{
- 
+.buttonStyles {
+  background-color: blue;
+  padding: 10px 2%;
+  border: 2px solid #F3F3FA;
+  border-radius: .5rem;
+  color: white;
+  cursor: pointer;
 }
+
+/* .propButton{
+  background-color: green;
+  color: red;
+} */

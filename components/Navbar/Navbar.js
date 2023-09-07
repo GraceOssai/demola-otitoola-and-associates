@@ -14,7 +14,7 @@ const Navbar = (props) => {
         <Link href="./about">About</Link>
         <Link href="./properties">Properties</Link>
       </div>
-      <Button type={props.type}>Contact</Button>
+      <Button>Contact</Button>
     </div>
   );
 };

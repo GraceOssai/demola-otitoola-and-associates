@@ -1,0 +1,8 @@
+.option {
+  width: 205px;
+  height: 56px;
+  border-width: 1px;
+  color : #4764C3;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.10) inset;
+}
+
