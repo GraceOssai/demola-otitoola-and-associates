@@ -1,11 +1,17 @@
 .nav{
   display: flex;
   justify-content: space-between;
-  /* background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 5px; */
+  align-items: center;
+  width: 100%;
+  border-bottom: 0 solid grey;
+  padding: 15px 5%;
+  box-sizing: border-box;
+  box-shadow: 4px 7px 8px #dad7d7;
 }
 
-.contact{
-  background-color: blue;
+.addresses {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  text-decoration: none;
 }
