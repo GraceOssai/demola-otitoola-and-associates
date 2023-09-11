@@ -1,9 +1,6 @@
-/* .home{
-  margin: 0;
-  padding: 15px 5%;
-}
-
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 :root {
@@ -92,6 +89,15 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+select {
+  -webkit-appearance: none; 
+  appearance: none; 
+  background-image: url('../public/assets/svg/ExpandMore.svg');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+
 
 a {
   color: inherit;
