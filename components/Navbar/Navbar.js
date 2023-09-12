@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../public/assets/images/logo.jpeg";
+import logo from "../../public/assets/images/logo.png";
 import Button from "../globalComponents/Button";
 
 const navLinks = [
