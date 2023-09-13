@@ -8,7 +8,8 @@ import IconBtn from "@/components/globalComponents/IconBtn";
 import ImageSlider from "@/components/globalComponents/ImageSlider";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
-import searchIcon from '../public/assets/svg/searchIcon.svg'
+import searchIcon from '../public/assets/svg/searchIcon.svg';
+import searchIconCircle from '../public/assets/svg/searchIconCircle.svg'
 
 const HomePage = () => {
 
@@ -19,7 +20,7 @@ const HomePage = () => {
     <Layout className="">
       <section className="relative flex justify-between items-center py-[15px] px-14">
         <div className="w-[545px]">
-          <h1 className="text-[4.05rem]">
+          <h1 className="text-[4.05rem] text-[#1C3988]">
             Morden Living <br /> for everyone
           </h1>
           <p className="text-[1.33rem] font-weight leading-[34.2px]">
@@ -27,10 +28,14 @@ const HomePage = () => {
             real estate. We have been operating in Madrid and Barcelona more
             than 15 years.
           </p>
-          <div className="absolute mt-[20px] left-0 bg-secondary-0 rounded-[4px] w-[737px] h-[104px] flex justify-evenly items-center">
+          <div className="absolute mt-[20px] ml-0 bg-secondary-0 rounded-[4px] w-[737px] h-[104px] flex justify-evenly items-center">
             <CustomSelectInput type="text" placeholder="Property type" />
-            <IconInput />
-            <IconBtn text="Search" src={searchIcon} IconBtnClick={searchHandler} />
+            <IconInput src={searchIcon} />
+            <IconBtn
+              text="Search"
+              src={searchIconCircle}
+              IconBtnClick={searchHandler}
+            />
           </div>
         </div>
         <div>

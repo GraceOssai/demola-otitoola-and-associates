@@ -1,57 +1,54 @@
 import React, { useState } from "react";
 import IconBtn from "./IconBtn";
-import Image from "next/image";
 import Card from "./Card";
-import nextBtn from "../../public/assets/svg/nextBtn.svg";
-import backBtn from "../../public/assets/svg/backBtn.svg";
 import Button from "./Button";
-import firstImage from '@/public/assets/images/sliderImages/firstImage.png'
-import secondImage from '@/public/assets/images/sliderImages/secondImage.png'
-import thirdImage from '@/public/assets/images/sliderImages/thirdImage.png'
-import fourthImage from '@/public/assets/images/sliderImages/fourthImage.png'
+import firstImage from "@/public/assets/images/sliderImages/firstImage.png";
+import secondImage from "@/public/assets/images/sliderImages/secondImage.png";
+import thirdImage from "@/public/assets/images/sliderImages/thirdImage.png";
+import fourthImage from "@/public/assets/images/sliderImages/fourthImage.png";
+import Carousel from "react-simply-carousel";
+import Image from "next/image";
 
 const ImageSlider = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
   const items = [
     {
-      img: {firstImage},
+      img: firstImage,
       description: "Large 4-room apartment with a beautiful terrace",
       amount: "320,000",
       location: "Ibadan",
     },
     {
-      img: {secondImage},
+      img: secondImage,
       description: "5i large design apartment with terrace",
       amount: "320,000",
       location: "Ibadan",
     },
     {
-      img: {thirdImage},
+      img: thirdImage,
       description: "Large 4-room apartment with a beautiful terrace",
       amount: "320,000",
       location: "Ibadan",
     },
     {
-      img: {fourthImage},
+      img: fourthImage,
+      description: "Large 4-room apartment with a beautiful terrace",
+      amount: "320,000",
+      location: "Ibadan",
+    },
+    {
+      img: secondImage,
+      description: "Large 4-room apartment with a beautiful terrace",
+      amount: "320,000",
+      location: "Ibadan",
+    },
+    {
+      img: firstImage,
       description: "Large 4-room apartment with a beautiful terrace",
       amount: "320,000",
       location: "Ibadan",
     },
   ];
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const prevImage = () => {
-    console.log("Previous button clicked");
-    setCurrentImage((prevIndex) =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const nextImage = () => {
-    console.log("Next button clicked");
-    setCurrentImage((prevIndex) =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
 
   return (
     <div className="py-[15px] px-14">
@@ -67,34 +64,93 @@ const ImageSlider = () => {
           Show all offers
         </Button>
       </div>
-      <div className="flex justify-between items-center">
-        <div>counter</div>
-        <div className="flex">
-          <IconBtn
-            IconBtnClick={prevImage}
-            src={backBtn}
-            style="h-16 w-16 rounded-full"
-          />
-          <IconBtn
-            IconBtnClick={nextImage}
-            src={nextBtn}
-            style="h-16 w-16 rounded-full"
-          />
-        </div>
-      </div>
-
-      {items.map((item, index) => (
-        <Card key={index}>
-          <img src={item.img} width={391} height={259} alt="slider" />
-          <div className="px-5 py-5 flex flex-col gap-5">
-            <p className="text-[#141B2D] font-bold">{item.description}</p>
-            <div>
-              <p className="text-[#1C3988]">#{item.amount}</p>
-              <p className="text-[#141B2D]">{item.location}</p>
+      <Carousel
+        containerProps={{
+          style: {
+            width: "100%",
+            justifyContent: "space-between",
+            userSelect: "none",
+          },
+        }}
+        preventScrollOnSwipe
+        swipeTreshold={60}
+        activeSlideIndex={activeSlide}
+        activeSlideProps={{
+          style: {
+            background: "blue",
+          },
+        }}
+        onRequestChange={setActiveSlide}
+        forwardBtnProps={{
+          children: ">",
+          style: {
+            width: 60,
+            height: 60,
+            minWidth: 60,
+            alignSelf: "center",
+            color: "#1C3988",
+            fontWeight: "bold",
+            fontSize: 20,
+            // backgroundColor: "#1C3988",
+          },
+        }}
+        backwardBtnProps={{
+          children: "<",
+          style: {
+            width: 60,
+            height: 60,
+            minWidth: 60,
+            alignSelf: "center",
+            color: "#1C3988",
+            fontWeight: "bold",
+            fontSize: 20,
+          },
+        }}
+        dotsNav={{
+          show: true,
+          itemBtnProps: {
+            style: {
+              height: 16,
+              width: 16,
+              borderRadius: "50%",
+              border: 0,
+              backgroundColor: "#1C3988",
+            },
+          },
+          activeItemBtnProps: {
+            style: {
+              height: 16,
+              width: 16,
+              borderRadius: "50%",
+              border: 0,
+              background: "black",
+            },
+          },
+        }}
+        itemsToShow={2}
+        speed={400}
+        centerMode
+      >
+        {items.map((item, index) => (
+          <Card key={index} className="h-auto mt-16 ">
+            <Image
+              src={item.img}
+              width={391}
+              height={259}
+              alt="slider"
+              className="bg-contain"
+            />
+            <div className="px-5 py-5 flex flex-col gap-5">
+              <p className="text-[#141B2D] font-bold">{item.description}</p>
+              <div>
+                <p className="text-[#1C3988]">#{item.amount}</p>
+                <p className="text-[#141B2D]">{item.location}</p>
+                {console.log(item.img)}
+              </div>
             </div>
-          </div>
-        </Card>
-      ))}
+          </Card>
+        ))}
+      </Carousel>
     </div>
   );
 };

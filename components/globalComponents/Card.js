@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Card = (props) => {
+const Card = ({className, children}) => {
   return (
-    <div className='rounded-2xl h-auto w-[350px] bg-white'>{props.children}</div>
-  )
+    <div className={`'rounded-2xl h-auto w-[350px] bg-white' ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 export default Card
