@@ -19,7 +19,7 @@ const IconBtn = ({ IconBtnClick, text, src, style }) => {
           onClick={IconBtnClick}
         />
       </div>
-      <p>{text}</p>
+      <span>{text}</span>
     </button>
   );
 };

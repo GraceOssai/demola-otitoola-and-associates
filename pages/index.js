@@ -17,7 +17,7 @@ const HomePage = () => {
     console.log(searchIcon)
   }
   return (
-    <Layout className="">
+    <Layout>
       <section className="relative flex justify-between items-center py-[15px] px-14">
         <div className="w-[545px]">
           <h1 className="text-[4.05rem] text-[#1C3988]">
@@ -29,7 +29,12 @@ const HomePage = () => {
             than 15 years.
           </p>
           <div className="absolute mt-[20px] ml-0 bg-secondary-0 rounded-[4px] w-[737px] h-[104px] flex justify-evenly items-center">
-            <CustomSelectInput type="text" placeholder="Property type" />
+            <CustomSelectInput
+              type="text"
+              placeholder="Property type"
+              propertyType="Property"
+              options={["Option 1", "Option 2", "Option 3"]}
+            />
             <IconInput src={searchIcon} />
             <IconBtn
               text="Search"
@@ -45,7 +50,7 @@ const HomePage = () => {
       <section className="w-full h-[720px] bg-secondary-0 mt-[80px] pt-[30px]">
         <ImageSlider />
       </section>
-      <section className="w-full h-[520px] py-[15px] px-14 flex justify-between gap-20">
+      <section className="w-full h-[520px] py-[80px] px-14 flex justify-between gap-20">
         <Image src={aboutImg} />
         <div className="flex flex-col gap-5">
           <h1 className="text-5xl">About us</h1>
@@ -77,9 +82,6 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-      </section>
-      <section className="w-full h-[520px] py-[15px] px-14">
-        <h1>Our Team</h1>
       </section>
     </Layout>
   );

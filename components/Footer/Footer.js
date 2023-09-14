@@ -40,7 +40,7 @@ const Footer = () => {
   const emailSubmitHandler = () => {}
  
   return (
-    <div className="bg-[#1C3988]">
+    <div className="bg-[#1C3988] mt-[100px]">
       <div className="w-full bg-[#F3F3FA]">
         <div className="flex justify-center gap-6 items-center py-[15px] px-14">
           <Image src={paperPlane} alt={"planePaper"} width={217} height={217} />

@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
-import Button from "../globalComponents/Button";
 
 const navLinks = [
   {
@@ -11,11 +10,15 @@ const navLinks = [
   },
   {
     title: "About",
-    link: "/",
+    link: "/about",
   },
   {
-    title: "Property",
-    link: "/",
+    title: "Properties",
+    link: "/properties",
+  },
+  {
+    title: "Contact us",
+    link: "/contact",
   },
 ];
 const Navbar = () => {
@@ -33,13 +36,20 @@ const Navbar = () => {
         />
       </div>
       <div className="flex space-x-8 items-center">
-        {navLinks.map((navaData, index) => (
-          <Link href={navaData.link} key={index}>
-            {navaData.title}
+        {navLinks.map((navData, index) => (
+          <Link href={navData.link} key={index}>
+            <div
+              className={
+                navData.title === "Contact us"
+                  ? "w-auto border-2 py-2 px-4 rounded shadow-inner bg-primary-0 text-secondary-0 hover:bg-secondary-0 hover:text-primary-0 transform scale-110 transition-transform"
+                  : "text-primary-0 "
+              }
+            >
+              {navData.title}
+            </div>
           </Link>
         ))}
       </div>
-      <Button>Contact</Button>
     </div>
   );
 };
