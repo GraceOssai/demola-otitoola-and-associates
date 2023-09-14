@@ -5,47 +5,88 @@ import Button from "@/components/globalComponents/Button";
 
 const contact = () => {
   const [fullNameState, setFullName] = useState("");
-  const [phoneNumberState, setPhoneNumber] = useState();
+  const [phoneNumberState, setPhoneNumber] = useState('');
   const [emailState, setEmail] = useState("");
   const [textAreaMsg, setTextAreaMsg] = useState("");
   const [checkBoxInput, setCheckBoxInput] = useState(false);
-  const [formIsValid, setFormIsValid] = useState(false)
+
+  const [fullnameError, setFullnameError] = useState('')
+  const [phoneNumberError, setPhoneNumberError] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [textAreaMsgError, setTextAreaMsgError] = useState('')
+  const [checkBoxInputError, setCheckBoxInputError] = useState('')
 
   // full name
   const fullNameHandler = (event) => {
     setFullName(event.target.value);
-
-    setFormIsValid(event.target.value.length > 10)
   };
   // phone number
   const phoneNumberHandler = (event) => {
     setPhoneNumber(event.target.value);
-
-    setFormIsValid(event.target.value.includes('+').length === 14)
   };
 
   // email state
   const emailStateHandler = (event) => {
     setEmail(event.target.value);
-
-    setFormIsValid(event.target.value.includes("@"));
   };
 
   // text area
   const textAreaMsgHandler = (event) => {
     setTextAreaMsg(event.target.value);
-
-    setFormIsValid(event.target.value)
   };
+
+
   const checkBoxInputHandler = (event) => {
     setCheckBoxInput(event.target.checked);
-
-    setFormIsValid(event.target.checked ? true : false)
   };
+
+  const formValidation = () => {
+    
+    let isFullnameValid = true;
+    let isPhoneValid = true;
+    let isEmailValid = true;
+    let isMessageValid = true;
+    let isCheckedValid = true;
+
+    if (fullname.trim() === "") {
+      setFullnameError("Email is required");
+      isFullnameValid = false;
+    } else setFullnameError("");
+
+
+    if (phoneNumberState.trim() === "") {
+      setPhoneNumberError("Phone number is required");
+      isPhoneValid = false;
+    } else setPhoneNumberError("");
+
+
+    if (emailState.trim() === "") {
+      setEmailError("Email is required");
+      isEmailValid = false;
+    } else if (!emailPattern.test(email)) {
+      setEmailError("Invalid email address");
+      isEmailValid = false;
+    } else setEmailError("");
+
+
+    if (textAreaMsg.trim() === "") {
+      setTextAreaMsgError("Message is required");
+      isMessageValid = false;
+    } else setTextAreaMsgError("");
+
+
+    // if (checkBoxInput.trim() === "") {
+    //   setFullnameError = "Email is required";
+    //   isFullnameValid = false;
+    // } else setFullnameError("");
+  }
+
 
   const submitHandler = (event) => {
     event.preventDefault();
 
+    console.log('clicked')
+    console.log(checkBoxInput)
     const userData = {
       fullName: fullNameState,
       phoneNumber: phoneNumberState,
@@ -57,7 +98,7 @@ const contact = () => {
     console.log(userData);
 
     setFullName('');
-    setPhoneNumber();
+    setPhoneNumber('');
     setEmail('');
     setTextAreaMsg('');
     setCheckBoxInput(false)
@@ -74,13 +115,13 @@ const contact = () => {
         <Input
           onChange={fullNameHandler}
           value={fullNameState}
-          placeholder="fullname..."
+          placeholder="Fullname..."
           className="w-[500px] h-[40px] rounded"
         />
         <Input
           onChange={phoneNumberHandler}
           value={phoneNumberState}
-          placeholder="phone number..."
+          placeholder="Phone number..."
           className="w-[500px] h-[40px] rounded"
         />
         <Input
@@ -92,18 +133,18 @@ const contact = () => {
         <textarea
           id="myTextarea"
           name="textarea_name"
-          onChange={textAreaMsg}
-          className="w-[500px] h-[400px] border-2"
-        >
-          Enter text here...
-        </textarea>
+          onChange={textAreaMsgHandler}
+          className="w-[500px] h-[200px] border-2 p-[20px] outline-none"
+          defaultValue='Enter text here...'
+        />
         <Input
           onChange={checkBoxInputHandler}
           checked={checkBoxInput}
           type="checkBox"
-          className="w-[500px] h-[40px] rounded"
+          className="w-[50px] h-[15px] rounded"
         />
-        <Button disabled={!formIsValid}>Send Message</Button>
+        <span>I agree to the processing of data</span>
+        <Button onClickBtn={submitHandler}>Send Message</Button>
       </form>
     </Layout>
   );
