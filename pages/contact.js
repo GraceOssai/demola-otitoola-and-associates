@@ -16,6 +16,8 @@ const contact = () => {
   const [textAreaMsgError, setTextAreaMsgError] = useState('')
   const [checkBoxInputError, setCheckBoxInputError] = useState('')
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   // full name
   const fullNameHandler = (event) => {
     setFullName(event.target.value);
@@ -41,15 +43,14 @@ const contact = () => {
   };
 
   const formValidation = () => {
-    
     let isFullnameValid = true;
     let isPhoneValid = true;
     let isEmailValid = true;
     let isMessageValid = true;
     let isCheckedValid = true;
 
-    if (fullname.trim() === "") {
-      setFullnameError("Email is required");
+    if (fullNameState.trim() === "") {
+      setFullnameError("Full name is required");
       isFullnameValid = false;
     } else setFullnameError("");
 
@@ -63,7 +64,7 @@ const contact = () => {
     if (emailState.trim() === "") {
       setEmailError("Email is required");
       isEmailValid = false;
-    } else if (!emailPattern.test(email)) {
+    } else if (!emailPattern.test(emailState)) {
       setEmailError("Invalid email address");
       isEmailValid = false;
     } else setEmailError("");
@@ -75,16 +76,19 @@ const contact = () => {
     } else setTextAreaMsgError("");
 
 
-    // if (checkBoxInput.trim() === "") {
-    //   setFullnameError = "Email is required";
-    //   isFullnameValid = false;
-    // } else setFullnameError("");
+    if(checkBoxInput === false) {
+      setCheckBoxInputError('must be checked');
+      isCheckedValid = false;
+    } else setCheckBoxInputError('')
+
+    const isValid = isFullnameValid && isPhoneValid && isEmailValid && isMessageValid && isCheckedValid;
+    return isValid;
   }
 
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    if(formValidation()) {
     console.log('clicked')
     console.log(checkBoxInput)
     const userData = {
@@ -102,6 +106,8 @@ const contact = () => {
     setEmail('');
     setTextAreaMsg('');
     setCheckBoxInput(false)
+    }
+
 
   }
 
@@ -118,18 +124,21 @@ const contact = () => {
           placeholder="Fullname..."
           className="w-[500px] h-[40px] rounded"
         />
+        {fullnameError && <div style={{color: 'red'}}>{fullnameError}</div>}
         <Input
           onChange={phoneNumberHandler}
           value={phoneNumberState}
           placeholder="Phone number..."
           className="w-[500px] h-[40px] rounded"
         />
+        {phoneNumberError && <div style={{color: 'red'}}>{phoneNumberError}</div>}
         <Input
           onChange={emailStateHandler}
           value={emailState}
           placeholder="email..."
           className="w-[500px] h-[40px] rounded"
         />
+        {emailError && <div style={{color: 'red'}}>{emailError}</div>}
         <textarea
           id="myTextarea"
           name="textarea_name"
@@ -137,6 +146,7 @@ const contact = () => {
           className="w-[500px] h-[200px] border-2 p-[20px] outline-none"
           defaultValue='Enter text here...'
         />
+        {textAreaMsgError && <div style={{color: 'red'}}>{textAreaMsgError}</div>}
         <Input
           onChange={checkBoxInputHandler}
           checked={checkBoxInput}
