@@ -5,16 +5,16 @@ import Button from "@/components/globalComponents/Button";
 
 const contact = () => {
   const [fullNameState, setFullName] = useState("");
-  const [phoneNumberState, setPhoneNumber] = useState('');
+  const [phoneNumberState, setPhoneNumber] = useState("");
   const [emailState, setEmail] = useState("");
   const [textAreaMsg, setTextAreaMsg] = useState("");
   const [checkBoxInput, setCheckBoxInput] = useState(false);
 
-  const [fullnameError, setFullnameError] = useState('')
-  const [phoneNumberError, setPhoneNumberError] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [textAreaMsgError, setTextAreaMsgError] = useState('')
-  const [checkBoxInputError, setCheckBoxInputError] = useState('')
+  const [fullnameError, setFullnameError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [textAreaMsgError, setTextAreaMsgError] = useState("");
+  const [checkBoxInputError, setCheckBoxInputError] = useState("");
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -37,7 +37,6 @@ const contact = () => {
     setTextAreaMsg(event.target.value);
   };
 
-
   const checkBoxInputHandler = (event) => {
     setCheckBoxInput(event.target.checked);
   };
@@ -54,12 +53,10 @@ const contact = () => {
       isFullnameValid = false;
     } else setFullnameError("");
 
-
     if (phoneNumberState.trim() === "") {
       setPhoneNumberError("Phone number is required");
       isPhoneValid = false;
     } else setPhoneNumberError("");
-
 
     if (emailState.trim() === "") {
       setEmailError("Email is required");
@@ -69,47 +66,49 @@ const contact = () => {
       isEmailValid = false;
     } else setEmailError("");
 
-
     if (textAreaMsg.trim() === "") {
       setTextAreaMsgError("Message is required");
       isMessageValid = false;
     } else setTextAreaMsgError("");
 
-
-    if(checkBoxInput === false) {
-      setCheckBoxInputError('must be checked');
+    if (checkBoxInput === false) {
+      setCheckBoxInputError("must be checked");
       isCheckedValid = false;
-    } else setCheckBoxInputError('')
+    } else setCheckBoxInputError("");
 
-    const isValid = isFullnameValid && isPhoneValid && isEmailValid && isMessageValid && isCheckedValid;
+    const isValid =
+      isFullnameValid &&
+      isPhoneValid &&
+      isEmailValid &&
+      isMessageValid &&
+      isCheckedValid;
+    
     return isValid;
-  }
-
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if(formValidation()) {
-    console.log('clicked')
-    console.log(checkBoxInput)
-    const userData = {
-      fullName: fullNameState,
-      phoneNumber: phoneNumberState,
-      email: emailState,
-      textArea: textAreaMsg,
-      checked : checkBoxInput
+    if (formValidation()) {
+      console.log("clicked");
+      console.log(checkBoxInput);
+      
+      const userData = {
+        fullName: fullNameState,
+        phoneNumber: phoneNumberState,
+        email: emailState,
+        textArea: textAreaMsg,
+        checked: checkBoxInput,
+      };
+
+      console.log(userData);
+
+      setFullName("");
+      setPhoneNumber("");
+      setEmail("");
+      setTextAreaMsg("");
+      setCheckBoxInput(false);
     }
-
-    console.log(userData);
-
-    setFullName('');
-    setPhoneNumber('');
-    setEmail('');
-    setTextAreaMsg('');
-    setCheckBoxInput(false)
-    }
-
-
-  }
+  };
 
   return (
     <Layout>
@@ -124,29 +123,33 @@ const contact = () => {
           placeholder="Fullname..."
           className="w-[500px] h-[40px] rounded"
         />
-        {fullnameError && <div style={{color: 'red'}}>{fullnameError}</div>}
+        {fullnameError && <div className="text-red-500">{fullnameError}</div>}
         <Input
           onChange={phoneNumberHandler}
           value={phoneNumberState}
           placeholder="Phone number..."
           className="w-[500px] h-[40px] rounded"
         />
-        {phoneNumberError && <div style={{color: 'red'}}>{phoneNumberError}</div>}
+        {phoneNumberError && (
+          <div className="text-red-500">{phoneNumberError}</div>
+        )}
         <Input
           onChange={emailStateHandler}
           value={emailState}
           placeholder="email..."
           className="w-[500px] h-[40px] rounded"
         />
-        {emailError && <div style={{color: 'red'}}>{emailError}</div>}
+        {emailError && <div className="text-red-500">{emailError}</div>}
         <textarea
           id="myTextarea"
           name="textarea_name"
           onChange={textAreaMsgHandler}
           className="w-[500px] h-[200px] border-2 p-[20px] outline-none"
-          defaultValue='Enter text here...'
+          defaultValue="Enter text here..."
         />
-        {textAreaMsgError && <div style={{color: 'red'}}>{textAreaMsgError}</div>}
+        {textAreaMsgError && (
+          <div style={{ color: "red" }}>{textAreaMsgError}</div>
+        )}
         <Input
           onChange={checkBoxInputHandler}
           checked={checkBoxInput}

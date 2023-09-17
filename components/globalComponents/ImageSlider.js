@@ -29,7 +29,7 @@ const ImageSlider = () => {
       </div>
       <Carousel
         containerProps={{
-          style: {
+          style: { 
             width: "100%",
             justifyContent: "space-between",
             userSelect: "none",
@@ -68,6 +68,7 @@ const ImageSlider = () => {
             fontSize: 20,
           },
         }}
+
         dotsNav={{
           show: true,
           itemBtnProps: {
@@ -77,6 +78,7 @@ const ImageSlider = () => {
               borderRadius: "50%",
               border: 0,
               backgroundColor: "#1C3988",
+              margin : '0 5px 0 5px',
             },
           },
           activeItemBtnProps: {
@@ -93,8 +95,9 @@ const ImageSlider = () => {
         speed={400}
         centerMode
       >
+
         {PropertiesData.map((property, index) => (
-          <Card key={index} className="h-auto mt-16">
+          <Card key={index} className="h-auto mt-16 mr-10">
             <Image
               src={property.img}
               width={391}
