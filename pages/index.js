@@ -2,11 +2,10 @@ import React from "react";
 import Layout from "@/components/Layouts/Layout";
 import Image from "next/image";
 import heroImage from "../public/assets/images/heroImage.png";
-import ImageSlider from "@/components/globalComponents/ImageSlider";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
 import SearchBar from "@/components/globalComponents/SearchBar";
-import NewComponent from "@/components/globalComponents/NewComponent";
+import Carousel from "@/components/globalComponents/Carousel";
 
 const HomePage = () => {
   
@@ -38,11 +37,8 @@ const HomePage = () => {
           searchHandler={searchHandlerFtn}
         />
       </section>
-      <NewComponent />
-      <section className="w-full h-[720px] bg-secondary-0 mt-[80px] pt-[30px] border-red-500">
-        
-        <ImageSlider />
-      </section>
+      <Carousel />
+      <section className="w-full h-[720px] bg-secondary-0 mt-[80px] pt-[30px] border-red-500">      </section>
       <section className="w-full h-[520px] py-[80px] px-14 flex justify-between gap-20">
         <Image src={aboutImg} />
         <div className="flex flex-col gap-5">
