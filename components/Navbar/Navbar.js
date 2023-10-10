@@ -47,7 +47,6 @@ const Navbar = () => {
       <div className="flex space-x-8 items-center">
         {navLinks.map((navData, index) => (
           <Link href={navData.link} key={index}>
-            <div></div>
             <div
               className={
                 navData.title === "Contact us"

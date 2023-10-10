@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/Layouts/Layout";
 import Image from "next/image";
-// import heroImage from "../public/assets/images/heroImage.png";
+import heroImage from "../public/assets/images/heroImage.png";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
 import SearchBar from "@/components/globalComponents/SearchBar";
@@ -27,9 +27,9 @@ const HomePage = () => {
             searchHandler={searchHandlerFtn}
           />
         </div>
+          <Image src={heroImage} alt={"hero-image"} width={580} height={557} />
         <div style={{ backgroundColor: "pink", width: '50%'}}>
-          {/* <Image src={heroImage} alt={"hero-image"} width={580} height={557} /> */}
-          <HomeSlider />
+          {/* <HomeSlider /> */}
         </div>
         <SearchBar
           className="flex flex-col w-[80%] lg:hidden"
