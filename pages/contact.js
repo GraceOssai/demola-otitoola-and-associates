@@ -150,12 +150,16 @@ const contact = () => {
         {textAreaMsgError && (
           <div style={{ color: "red" }}>{textAreaMsgError}</div>
         )}
+
         <Input
           onChange={checkBoxInputHandler}
           checked={checkBoxInput}
           type="checkBox"
           className="w-[50px] h-[15px] rounded"
         />
+        {checkBoxInputError && (
+          <div style={{ color: "red" }}>{checkBoxInputError}</div>
+        )}
         <span>I agree to the processing of data</span>
         <Button onClickBtn={submitHandler}>Send Message</Button>
       </form>

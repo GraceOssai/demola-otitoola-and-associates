@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
 
+
 const navLinks = [
   {
     title: "Home",
@@ -10,7 +11,15 @@ const navLinks = [
   },
   {
     title: "About",
-    link: "/about",
+    link: [{
+      title: 'ceo',
+      link : '/ceo'
+    },
+      {
+        title: 'DOA',
+        link : '/doa'
+      }
+    ],
   },
   {
     title: "Properties",
@@ -38,6 +47,7 @@ const Navbar = () => {
       <div className="flex space-x-8 items-center">
         {navLinks.map((navData, index) => (
           <Link href={navData.link} key={index}>
+            <div></div>
             <div
               className={
                 navData.title === "Contact us"

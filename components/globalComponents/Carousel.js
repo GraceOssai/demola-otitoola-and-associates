@@ -3,10 +3,9 @@ import PropertiesData from "./PropertiesData";
 import Card from "./Card";
 import Image from "next/image";
 
-const Carousel = () => {
+const Carousel = ({style}) => {
   const [nextSlide, setNextSlide] = useState(0);
-  // const comments = ["", "", "", "", ""];
-
+ 
   useEffect(() => {
     const interval = setInterval(goToNextSlide, 2000);
 
@@ -27,7 +26,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative px-5 mb-48 mx-auto">
+    <div className={`relative px-5 mb-48 mx-auto ${style}`}>
       <div className="overflow-hidden mb-8 rounded-2xl">
         <div
           className="flex transition-transform duration-500"
@@ -41,11 +40,11 @@ const Carousel = () => {
           {PropertiesData.map((property, index) => (
             <div
               key={index}
-              className="flex border  items-start w-full h-40 md:h-96"
+              className="flex items-start w-full"
             >
-              <div className="w-[350px] flex-shrink-0 bg-white mx-5 px-1 bg-blue-2 pr-20 h-full overflow-y-auto pt-2 rounded-tr-2xl rounded-br-2xl md:pt-10 md:px-9">
+              <div className="w-[350px] flex-shrink-0 bg-white mx-5 px-1 bg-blue-2 pr-20 h-max pt-2 rounded-tr-2xl rounded-br-2xl md:pt-10 md:px-9">
                 <div className="text-gray-2 mb-2 text-sm md:mb-14 md:text-lg">
-                  <Card className="rounded-2xl h-auto w-[350px] bg-white h-auto mt-16 mr-10  border border-red-500">
+                  <Card className="rounded-2xl w-[350px] bg-white mt-16 mr-10  border">
                     {" "}
                     <Image
                       src={property.img}
@@ -66,9 +65,6 @@ const Carousel = () => {
                     </div>
                   </Card>
                 </div>
-                <div className="font-semibold text-xl text-blue-0">
-                  Amobi Victor
-                </div>
               </div>
             </div>
           ))}
@@ -77,7 +73,7 @@ const Carousel = () => {
 
       <div className="flex justify-center space-x-2">
         {PropertiesData.map((property, index) => {
-          const color = index === nextSlide ? "bg-blue-0" : "bg-gray-3";
+          const color = index === nextSlide ? "bg-blue-500" : "bg-gray-500";
           return (
             <div key={index} className={`h-5 w-5 rounded-full ${color}`}></div>
           );

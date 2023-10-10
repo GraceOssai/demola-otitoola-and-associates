@@ -1,20 +1,18 @@
 import React from "react";
 import Layout from "@/components/Layouts/Layout";
 import Image from "next/image";
-import heroImage from "../public/assets/images/heroImage.png";
+// import heroImage from "../public/assets/images/heroImage.png";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
 import SearchBar from "@/components/globalComponents/SearchBar";
 import Carousel from "@/components/globalComponents/Carousel";
+import HomeSlider from "@/components/globalComponents/HomeSlider";
 
 const HomePage = () => {
-  
-  const searchHandlerFtn = () => {
-
-  }
+  const searchHandlerFtn = () => {};
   return (
     <Layout>
-      <section className="relative flex flex-col justify-between items-center py-[15px] px-5 lg:px-14 lg:flex-row">
+      <section className=" z-10 flex flex-col justify-between items-center py-[15px] px-5 lg:px-14 lg:flex-row">
         <div className="w-full lg:w-[545px]">
           <h1 className="text-[2.05rem] text-[#1C3988] lg:text-[4.05rem]">
             Morden Living <br /> for everyone
@@ -29,17 +27,17 @@ const HomePage = () => {
             searchHandler={searchHandlerFtn}
           />
         </div>
-        <div>
-          <Image src={heroImage} alt={"hero-image"} width={580} height={557} />
+        <div style={{ backgroundColor: "pink", width: '50%'}}>
+          {/* <Image src={heroImage} alt={"hero-image"} width={580} height={557} /> */}
+          <HomeSlider />
         </div>
         <SearchBar
           className="flex flex-col w-[80%] lg:hidden"
           searchHandler={searchHandlerFtn}
         />
       </section>
-      <Carousel />
-      <section className="w-full h-[720px] bg-secondary-0 mt-[80px] pt-[30px] border-red-500">      </section>
-      <section className="w-full h-[520px] py-[80px] px-14 flex justify-between gap-20">
+      <Carousel style="mt-[120px]" />
+      <section className="w-full h-[520px] px-14 flex justify-between gap-20">
         <Image src={aboutImg} />
         <div className="flex flex-col gap-5">
           <h1 className="text-5xl">About us</h1>
