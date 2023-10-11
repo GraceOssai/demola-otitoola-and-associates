@@ -2,34 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
+import { navLinks } from "./NavItems";
+import NavDropDown from "./NavDropDown";
 
 
-const navLinks = [
-  {
-    title: "Home",
-    link: "/",
-  },
-  {
-    title: "About",
-    link: [{
-      title: 'ceo',
-      link : '/ceo'
-    },
-      {
-        title: 'DOA',
-        link : '/doa'
-      }
-    ],
-  },
-  {
-    title: "Properties",
-    link: "/properties",
-  },
-  {
-    title: "Contact us",
-    link: "/contact",
-  },
-];
+
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center w-full border-b py-4 shadow-custom-shadow px-14">
@@ -45,7 +22,7 @@ const Navbar = () => {
         />
       </div>
       <div className="flex space-x-8 items-center">
-        {navLinks.map((navData, index) => (
+        {navLinks.map((navData, index) => ( 
           <Link href={navData.link} key={index}>
             <div
               className={
@@ -59,6 +36,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+      <NavDropDown />
     </div>
   );
 };
