@@ -20,19 +20,20 @@ const propertiesData = [
     location: "Ibadan",
   },
   {
-    id: 2,
-    img: thirdImage,
-    description: "Large 4-room apartment with a beautiful terrace",
-    amount: "320,000",
-    location: "Ibadan",
-  },
-  {
-    id: 3,
+     id: 2,
+     img: thirdImage,
+     description: "Large 4-room apartment with a beautiful terrace",
+     amount: "320,000",
+     location: "Ibadan",
+   },
+   {
+     id: 3,
     img: fourthImage,
     description: "Large 4-room apartment with a beautiful terrace",
     amount: "320,000",
     location: "Ibadan",
   },
+  
   {
     id: 4,
     img: secondImage,

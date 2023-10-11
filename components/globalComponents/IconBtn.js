@@ -2,13 +2,10 @@ import React from "react";
 import Image from "next/image";
 
 
-const IconBtn = ({ IconBtnClick, text, src, style }) => {
+const IconBtn = ({ IconBtnClick, text, src, className }) => {
   return (
     <button
-      className={
-        style ||
-        "flex items-center justify-center	space-x-[20px] h-[56px] w-[156px] text-white text-base font-bold bg-primary-0 rounded border-none"
-      }
+      className={`flex items-center justify-center	space-x-[20px] text-white text-base font-bold bg-primary-0 rounded border-none ${className}`}
     >
       <div className="h-[16px] w-[16px]">
         <Image

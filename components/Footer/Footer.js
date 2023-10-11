@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import paperPlane from "../../public/assets/svg/paperPlane.svg";
 import Input from "../globalComponents/Input";
@@ -6,38 +6,45 @@ import Button from "../globalComponents/Button";
 import logo from "../../public/assets/images/logo.png";
 
 
-const emailReducer = (state, action) => {
-  if (action.type === 'USER_INPUT') {
-    return {value : action.val, isValid : action.val.includes('@')}
-  }
-  if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.includes("@") };
-  }
-  return { value: '', isValid : false}
-}
-
 const Footer = () => {
-  const [emailState, dispatchEmailState] = useReducer(emailReducer, {
-    value: "",
-    isValid: false,
-  });
+  const [emailStateSub, setEmailStateSub] = useState('');
+  const [emailErrorSub, setEmailErrorSub] = useState('')
 
-  const emailChangeHandler = (event) => {
-    dispatchEmailState({type : 'USER_INPUT',  val : event.target.value})
+  const emailPatterns = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const emailChangeHandlerSub = (event) => {
+    setEmailStateSub(event.target.value)
   };
   
-  const validateBlurHandler = () => {
-    dispatchEmailState({type : 'INPUT_BLUR'})
-  };
 
-  const subScribeHandler = (event) => {
-    event.preventDefault();
-    
-    dispatchEmailState({ type: "USER_INPUT", val: "" });
-     console.log(emailState.value);
-   };
-  
-  const emailSubmitHandler = () => {}
+
+  const emailSubscribeHandler = (event) => {
+    event.preventDefault("");
+
+    let isEmailSubValid = true;
+
+    if (emailStateSub.trim() === "") {
+      setEmailErrorSub("email is required");
+      isEmailSubValid = false;
+      return
+    } else if (!emailPatterns.test(emailStateSub)) {
+      setEmailErrorSub('Invalid email')
+      isEmailSubValid = false;
+      return
+    } else setEmailErrorSub("");
+
+    console.log(emailStateSub)
+
+    // if (emailValidationSub) {
+    //   const userEmail = {
+    //     email: emailStateSub,
+    //   };
+
+    //  
+    // }
+
+    setEmailStateSub('')
+  };
  
   return (
     <div className="bg-[#1C3988] mt-[100px]">
@@ -53,20 +60,23 @@ const Footer = () => {
                 Get the latest news and interesting offers and real estate
               </p>
             </div>
-            <form className="flex items-center gap-3" onSubmit={emailSubmitHandler}>
+            <form
+              className="flex items-center gap-3"
+              onSubmit={emailSubscribeHandler}
+            >
               <Input
                 type="email"
-                onChange={emailChangeHandler}
-                onBlur={validateBlurHandler}
+                onChange={emailChangeHandlerSub}
                 placeholder="Your e-mail address"
-                value={emailState.value}
+                value={emailStateSub}
               />
               <Button
-                newStyle="text-[#1C3988] border-[1px] border-[#1C3988] px-6 h-[48px] "
-                onClickBtn={subScribeHandler}
+                newStyle="text-[#1C3988] border-[1px] border-[#1C3988] px-6 h-[48px]"
+                onClickBtn={emailSubscribeHandler}
               >
                 Subscribe
               </Button>
+              {emailErrorSub && <div className="text-red-500">{emailErrorSub}</div>}
             </form>
           </div>
         </div>

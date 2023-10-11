@@ -2,27 +2,26 @@ import React from "react";
 import Layout from "@/components/Layouts/Layout";
 import Image from "next/image";
 import heroImage from "../public/assets/images/heroImage.png";
-import CustomSelectInput from "@/components/globalComponents/CustomSelectInput";
-import IconInput from "@/components/globalComponents/IconInput";
-import IconBtn from "@/components/globalComponents/IconBtn";
-import ImageSlider from "@/components/globalComponents/ImageSlider";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
 import searchIcon from '../public/assets/svg/searchIcon.svg';
 import searchIconCircle from '../public/assets/svg/searchIconCircle.svg'
 import Fade from 'react-reveal/Fade';
+import SearchBar from "@/components/globalComponents/SearchBar";
+import Carousel from "@/components/globalComponents/Carousel";
+import HomeSlider from "@/components/globalComponents/HomeSlider";
 
 const HomePage = () => {
-
-  const searchHandler = () => {
-    console.log(searchIcon)
-  }
+  const searchHandlerFtn = () => {};
   return (
     <Layout>
       <section className="relative flex justify-between items-center py-[15px] px-14">
       <Fade left>
         <div className="w-[545px]">
           <h1 className="text-[4.05rem] text-[#1C3988]">
+      <section className=" z-10 flex flex-col justify-between items-center py-[15px] px-5 lg:px-14 lg:flex-row">
+        <div className="w-full lg:w-[545px]">
+          <h1 className="text-[2.05rem] text-[#1C3988] lg:text-[4.05rem]">
             Morden Living <br /> for everyone
           </h1>
           <p className="text-[1.33rem] font-weight leading-[34.2px]">
@@ -30,20 +29,10 @@ const HomePage = () => {
             real estate. We have been operating in Madrid and Barcelona more
             than 15 years.
           </p>
-          <div className="absolute mt-[20px] ml-0 bg-secondary-0 rounded-[4px] w-[737px] h-[104px] flex justify-evenly items-center">
-            <CustomSelectInput
-              type="text"
-              placeholder="Property type"
-              propertyType="Property"
-              options={["Option 1", "Option 2", "Option 3"]}
-            />
-            <IconInput src={searchIcon} />
-            <IconBtn
-              text="Search"
-              src={searchIconCircle}
-              IconBtnClick={searchHandler}
-            />
-          </div>
+          <SearchBar
+            className="hidden lg:flex w-[737px]"
+            searchHandler={searchHandlerFtn}
+          />
         </div>
       </Fade>
         
@@ -51,6 +40,8 @@ const HomePage = () => {
         <Fade right>
           <div>
           <Image src={heroImage} alt={"hero-image"} width={580} height={557} />
+        <div style={{ backgroundColor: "pink", width: '50%'}}>
+          {/* <HomeSlider /> */}
         </div>
         </Fade>
         
@@ -60,6 +51,13 @@ const HomePage = () => {
       </section>
       <section className="w-full h-[520px] py-[80px] px-14 flex justify-between gap-20">
       {/* <Fade left> */}
+        <SearchBar
+          className="flex flex-col w-[80%] lg:hidden"
+          searchHandler={searchHandlerFtn}
+        />
+      </section>
+      <Carousel style="mt-[120px]" />
+      <section className="w-full h-[520px] px-14 flex justify-between gap-20">
         <Image src={aboutImg} />
       {/* </Fade> */}
       <Fade right>

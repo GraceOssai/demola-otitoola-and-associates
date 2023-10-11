@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
-import { Merriweather } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const merriweather = Merriweather({
+const merriweather = Poppins({
   subsets: ["latin"],
   variable: "--font-merriweather",
   weight: ["400"],

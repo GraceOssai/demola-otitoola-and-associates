@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
 
+
 const navLinks = [
   {
     title: "Home",
@@ -10,7 +11,15 @@ const navLinks = [
   },
   {
     title: "About",
-    link: "/about",
+    link: [{
+      title: 'ceo',
+      link : '/ceo'
+    },
+      {
+        title: 'DOA',
+        link : '/doa'
+      }
+    ],
   },
   {
     title: "Properties",
