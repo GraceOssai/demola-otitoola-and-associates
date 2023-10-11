@@ -10,6 +10,7 @@ import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
 import searchIcon from '../public/assets/svg/searchIcon.svg';
 import searchIconCircle from '../public/assets/svg/searchIconCircle.svg'
+import Fade from 'react-reveal/Fade';
 
 const HomePage = () => {
 
@@ -19,6 +20,7 @@ const HomePage = () => {
   return (
     <Layout>
       <section className="relative flex justify-between items-center py-[15px] px-14">
+      <Fade left>
         <div className="w-[545px]">
           <h1 className="text-[4.05rem] text-[#1C3988]">
             Morden Living <br /> for everyone
@@ -43,15 +45,24 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <div>
+      </Fade>
+        
+
+        <Fade right>
+          <div>
           <Image src={heroImage} alt={"hero-image"} width={580} height={557} />
         </div>
+        </Fade>
+        
       </section>
       <section className="w-full h-[720px] bg-secondary-0 mt-[80px] pt-[30px]">
         <ImageSlider />
       </section>
       <section className="w-full h-[520px] py-[80px] px-14 flex justify-between gap-20">
+      {/* <Fade left> */}
         <Image src={aboutImg} />
+      {/* </Fade> */}
+      <Fade right>
         <div className="flex flex-col gap-5">
           <h1 className="text-5xl">About us</h1>
           <p>
@@ -82,6 +93,8 @@ const HomePage = () => {
             </p>
           </div>
         </div>
+      </Fade>
+        
       </section>
     </Layout>
   );
