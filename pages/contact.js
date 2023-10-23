@@ -112,57 +112,61 @@ const contact = () => {
 
   return (
     <Layout>
-      <form
-        action=""
-        onSubmit={submitHandler}
-        className="flex flex-col justify-center items-center gap-6 mt-[80px]"
-      >
-        <Input
-          onChange={fullNameHandler}
-          value={fullNameState}
-          placeholder="Fullname..."
-          className="w-[500px] h-[40px] rounded"
-        />
-        {fullnameError && <div className="text-red-500">{fullnameError}</div>}
-        <Input
-          onChange={phoneNumberHandler}
-          value={phoneNumberState}
-          placeholder="Phone number..."
-          className="w-[500px] h-[40px] rounded"
-        />
-        {phoneNumberError && (
-          <div className="text-red-500">{phoneNumberError}</div>
-        )}
-        <Input
-          onChange={emailStateHandler}
-          value={emailState}
-          placeholder="email..."
-          className="w-[500px] h-[40px] rounded"
-        />
-        {emailError && <div className="text-red-500">{emailError}</div>}
-        <textarea
-          id="myTextarea"
-          name="textarea_name"
-          onChange={textAreaMsgHandler}
-          className="w-[500px] h-[200px] border-2 p-[20px] outline-none"
-          defaultValue="Enter text here..."
-        />
-        {textAreaMsgError && (
-          <div style={{ color: "red" }}>{textAreaMsgError}</div>
-        )}
+      <div className=" h-[100vh] pt-10 w-full bg-[url('../public/assets/images/mainAbout.png')] bg-cover bg-center object-cover">
+        <form
+          action=""
+          onSubmit={submitHandler}
+          className="flex flex-col justify-center items-center gap-6"
+        >
+          <Input
+            onChange={fullNameHandler}
+            value={fullNameState}
+            placeholder="Fullname..."
+            className="w-[500px] h-[40px] rounded"
+          />
+          {fullnameError && <div className="text-red-500">{fullnameError}</div>}
+          <Input
+            onChange={phoneNumberHandler}
+            value={phoneNumberState}
+            placeholder="Phone number..."
+            className="w-[500px] h-[40px] rounded"
+          />
+          {phoneNumberError && (
+            <div className="text-red-500">{phoneNumberError}</div>
+          )}
+          <Input
+            onChange={emailStateHandler}
+            value={emailState}
+            placeholder="email..."
+            className="w-[500px] h-[40px] rounded"
+          />
+          {emailError && <div className="text-red-500">{emailError}</div>}
+          <textarea
+            id="myTextarea"
+            name="textarea_name"
+            onChange={textAreaMsgHandler}
+            className="w-[500px] h-[200px] border-2 p-[20px] outline-none"
+            defaultValue="Enter text here..."
+          />
+          {textAreaMsgError && (
+            <div style={{ color: "red" }}>{textAreaMsgError}</div>
+          )}
 
-        <Input
-          onChange={checkBoxInputHandler}
-          checked={checkBoxInput}
-          type="checkBox"
-          className="w-[50px] h-[15px] rounded"
-        />
-        {checkBoxInputError && (
-          <div style={{ color: "red" }}>{checkBoxInputError}</div>
-        )}
-        <span>I agree to the processing of data</span>
-        <Button onClickBtn={submitHandler}>Send Message</Button>
-      </form>
+          <div className="flex">
+            <Input
+              onChange={checkBoxInputHandler}
+              checked={checkBoxInput}
+              type="checkBox"
+              className="w-[50px] h-[15px] rounded"
+            />
+            {checkBoxInputError && (
+              <div style={{ color: "red" }}>{checkBoxInputError}</div>
+            )}
+            <span>I agree to the processing of data</span>
+          </div>
+          <Button onClickBtn={submitHandler}>Send Message</Button>
+        </form>
+      </div>
     </Layout>
   );
 };

@@ -4,8 +4,8 @@ export const navLinks = [
     link: "/",
   },
   {
-    title: "About",
-    link: "/ceo",
+    title: "About us",
+    link: "/ceoProfile",
   },
   {
     title: "Properties",
@@ -19,11 +19,11 @@ export const navLinks = [
 
 export const navDropdown = [
   {
-    title: "CEO's profile",
-    link:'/ceoProfile'
-  },
-  {
-    title: "Company's profile",
+    title: "Company",
     link:'/companyProfile'
   },
+  {
+    title: "CEO's profile",
+    link:'/ceoProfile'
+  }
 ]

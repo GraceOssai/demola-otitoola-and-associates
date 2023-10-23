@@ -26,7 +26,8 @@ const Carousel = ({style}) => {
   };
 
   return (
-    <div className={`relative px-5 mb-48 mx-auto ${style}`}>
+    <div className={`relative mb-20 md:px-5 md:mb-48 mx-auto ${style}`}>
+      {/* Any style given to a class, will be the default style or class for the mobile view. NOTE: md is desktop screen size, lg is bigger. So if I just give a style to any div, that's the style that the mobile screen will assume until we specify a breakpoint. Just like what we have in line 29, we only specified a px-5 for the desktop view (md) which means that for the mobile screen, no padding was given.*/}
       <div className="overflow-hidden mb-8 rounded-2xl">
         <div
           className="flex transition-transform duration-500"
@@ -38,13 +39,10 @@ const Carousel = ({style}) => {
           }}
         >
           {PropertiesData.map((property, index) => (
-            <div
-              key={index}
-              className="flex items-start w-full"
-            >
-              <div className="w-[350px] flex-shrink-0 bg-white mx-5 px-1 bg-blue-2 pr-20 h-max pt-2 rounded-tr-2xl rounded-br-2xl md:pt-10 md:px-9">
-                <div className="text-gray-2 mb-2 text-sm md:mb-14 md:text-lg">
-                  <Card className="rounded-2xl w-[350px] bg-white mt-16 mr-10  border">
+            <div key={index} className="flex items-start w-full">
+              <div className=" w-[350px] flex-shrink-0 bg-white px-1 bg-blue-2 pr-20 h-max pt-2 rounded-tr-2xl rounded-br-2xl md:pt-10 md:px-9">
+                <div className="text-gray-2 px-3 mb-2 text-sm md:mb-14 md:text-lg md:px-0">
+                  <Card className="rounded-2xl w-full bg-white mt-16 border md:w-[300px]">
                     {" "}
                     <Image
                       src={property.img}
@@ -75,13 +73,16 @@ const Carousel = ({style}) => {
         {PropertiesData.map((property, index) => {
           const color = index === nextSlide ? "bg-blue-500" : "bg-gray-500";
           return (
-            <div key={index} className={`h-5 w-5 rounded-full ${color}`}></div>
+            <div
+              key={index}
+              className={`h-3 w-3 md:w-5 md:h-5 rounded-full ${color}`}
+            ></div>
           );
         })}
       </div>
 
-      <button
-        className="absolute top-1/3 -translate-y-1/2 -translate-y-1/2 right-3 bg-blue-0 py-1 px-2 md:py-3 md:px-4"
+      {/* <button
+        className="absolute top-1/3 -translate-y-1/2 right-3 bg-blue-0 py-1 px-2 md:py-3 md:px-4"
         onClick={goToPrevSlide}
       >
         Prev
@@ -92,7 +93,7 @@ const Carousel = ({style}) => {
         onClick={goToNextSlide}
       >
         Next
-      </button>
+      </button> */}
     </div>
   );
 };
