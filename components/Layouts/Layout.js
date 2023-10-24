@@ -6,7 +6,7 @@ const Layout = ({children, className}) => {
 
   return (
     <div className={`'relative' ${className}`}>
-      <Navbar />
+      <Navbar/>
       {children}
       <Footer />
     </div>

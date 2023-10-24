@@ -30,8 +30,9 @@ const Navbar = () => {
           loading="eager"
         />
       </div>
+      {/* hamburger menu btn */}
       <button
-        className="text-2xl focus:outline-none"
+        className="text-2xl focus:outline-none md:hidden"
         onClick={() => toggleMenu(true)}
       >
         &#9776;
@@ -39,52 +40,57 @@ const Navbar = () => {
       {menuOpen && (
         <div className="z-50">
           <div className="fixed top-0 left-0 w-full h-screen bg-grey bg-opacity-90 backdrop-blur-lg p-4">
+            {/* close btn */}
             <button
               className="text-2xl text-right focus:outline-none"
               onClick={() => toggleMenu(false)}
             >
               &#10006;
             </button>
-            <div className="flex flex-col items-center mt-16 space-y-4 w-full h-20">
+            {/* The list items on a smaller screen */}
+            <div className="flex flex-col items-center mt-16 space-y-4 w-full h-20 cursor-pointer">
               {navLinks.map((item, index) => {
                 if (item.title === "About us") {
                   return (
-                    <div key={index} className="bg-red-700 relative h-20">
-                      <div className="z-50 bg-yellow-500"
+                    <div key={index} className="relative h-20">
+                      <div
+                        className="z-50"
                         onClick={() => mouseEnterHandler(true)}
                       >
                         {item.title}
                       </div>
-                      {/* {dropdown && <button onClick={() =>toggleMenu(false) } className="block">check</button>} */}
-                      {dropdown && <NavDropDown onClick={toggleMenu} />}
+                      {dropdown && <NavDropDown onClickHandler={toggleMenu} />}
                     </div>
                   );
                 }
-                return <Link key={index} href={item.link}>{item.title}</Link>;
+                return (
+                  <Link key={index} href={item.link}>
+                    {item.title}
+                  </Link>
+                );
               })}
             </div>
           </div>
         </div>
       )}
-      {/* <ul className="hidden lg:flex space-x-8 items-center">
-        {navLinks.map((item) => {
+      {/* The list item on desktop screen */}
+      <div className="hidden lg:flex space-x-8 items-center cursor-pointer">
+        {navLinks.map((item, index) => {
           if (item.title === "About us") {
             return (
-              <li
-                onClick={mouseEnterHandler}
-              >
-                <Link href={item.link}>{item.title}</Link>
-                {dropdown && <NavDropDown />}
-              </li>
+              <div key={index} onClick={mouseEnterHandler}>
+                <div onClick={() => mouseEnterHandler(true)}>{item.title}</div>
+                {dropdown && <NavDropDown onClickHandler={toggleMenu} />}
+              </div>
             );
           }
           return (
-            <li>
-              <Link href={item.link}>{item.title}</Link>
-            </li>
+            <Link key={index} href={item.link}>
+              {item.title}
+            </Link>
           );
         })}
-      </ul> */}
+      </div>
     </div>
   );
 };

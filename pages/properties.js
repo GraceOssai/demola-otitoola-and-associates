@@ -4,9 +4,9 @@ import Input from '@/components/globalComponents/Input';
 import IconBtn from '@/components/globalComponents/IconBtn';
 import searchIconCircle from '../public/assets/svg/searchIconCircle.svg';
 import CustomSelectInput from '@/components/globalComponents/CustomSelectInput';
-import PropertiesData from '../components/globalComponents/PropertiesData'
-import Card from '@/components/globalComponents/Card';
-import Image from 'next/image';
+// import PropertiesData from '../components/globalComponents/PropertiesData'
+// import Card from '@/components/globalComponents/Card';
+// import Image from 'next/image';
 
 
 const properties = () => {
@@ -38,7 +38,7 @@ const properties = () => {
               onChange={searchHandler}
               onBlur={searchBlurHandler}
             />
-            <IconBtn src={searchIconCircle} text="Search" />
+            <IconBtn src={searchIconCircle} text="Search"/>
           </div>
           <h1 className="flex justify-center items-center my-12 text-4">
             Filter settings

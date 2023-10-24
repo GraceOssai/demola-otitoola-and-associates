@@ -8,6 +8,7 @@ import Fade from "react-reveal/Fade";
 import SearchBar from "@/components/globalComponents/SearchBar";
 import Carousel from "@/components/globalComponents/Carousel";
 import Head from "next/head";
+import Card from "@/components/globalComponents/Card";
 // import ImageSlider from "@/components/globalComponents/ImageSlider"; // Import ImageSlider
 
 const HomePage = () => {
@@ -17,19 +18,19 @@ const HomePage = () => {
     <>
       <Head>
         <title>
-          Janet Memorial Hospital - Exceptional Healthcare Services.
+          Demola Otitoola & Associates - Exceptional Real Estate Services.
         </title>
         <meta
           name="description"
-          content="Discover comprehensive healthcare services at Janet Memorial Hospital. We provide state-of-the-art medical facilities, expert physicians, and compassionate care to improve your well-being. We are committed to providing exceptional healthcare services tailored to meet the needs of our community, we strive to be the leading healthcare institution in the region Contact us today."
+          content="We provide a wide range of services within the field of Estate Management and Development in both Rural and Urban areas."
         />
         <meta
           property="og:title"
-          content="Janet Memorial Hospital - Exceptional Healthcare Services"
+          content="Demola Otitoola & Associates - Exceptional Real Estate Services"
         />
         <meta
           property="og:description"
-          content="Discover comprehensive healthcare services at Janet Memorial Hospital. We provide state-of-the-art medical facilities, expert physicians, and compassionate care to improve your well-being. We are committed to providing exceptional healthcare services tailored to meet the needs of our community, we strive to be the leading healthcare institution in the region Contact us today."
+          content="We provide a wide range of services within the field of Estate Management and Development in both Rural and Urban areas."
         />
         <meta
           property="og:image"
@@ -69,48 +70,54 @@ const HomePage = () => {
         </section>
 
         <SearchBar
-          className="flex flex-col mx-auto lg:hidden w-[40rem]"
+          className="flex flex-col mx-auto lg:hidden max-w-[40rem]"
           searchHandler={searchHandlerFtn}
         />
         <Carousel style="mt-5 md:mt-[120px]" />
 
         <section className="w-full px-5 flex flex-col justify-between gap-20 md:flex-row md:px-14">
           <div className="h-[200px] w-full md:h-[350px] md:w-[50%] lg:h-[471px]">
-            <Image src={aboutImg} className="h-full w-full object-cover" />
+            <Image
+              src={aboutImg}
+              alt="about image"
+              className="h-full w-full object-cover"
+            />
           </div>
           <Fade right>
-            <div className="flex flex-col gap-5 md:w-[50%]">
-              <h1 className="text-3xl md:text-5xl">About us</h1>
-              <p className="text-sm md:text-[17px]">
-                Our firm - Demola Otitoola and Associates is a Real Estate
-                Consulting Organization established about Twenty-one (21) years
-                ago. It is a firm of Chartered Estate Surveyors and Valuers
-                registered under the Companies and Allied Matter Decree (1990)
-                pursuant to section 659, and approved to carry out the
-                below-mentioned pertinent and specialized consultancy services
-                by the{" "}
-                <span className="text-[#1C3988]">
-                  Estate Surveyors and Valuers Registration Board of Nigeria
-                  (ESVARBON). We maintain branches in Lagos, Ibadan, and
-                  Oshogbo.
-                </span>
-              </p>
-              <div>
-                <h3 className="text-xl font-bold">
-                  OUR SCOPE OF PROFESSIONAL SERVICES
-                </h3>
+            {/* <Card className="bg-primary-0 w-auto rounded-2xl px-[15px] py-10 mx-5 text-center text-secondary-0 md:bg-white md:w-[650px] md:rounded-2xl md:text-black md:px-[25px] md:absolute md:top-36 md:right-12 md:bottom-32 md:mx-0"> */}
+              <div className="flex flex-col gap-5 md:w-[50%]">
+                <h1 className="text-3xl md:text-5xl">About us</h1>
                 <p className="text-sm md:text-[17px]">
-                  We provide a wide range of services within the field of Estate
-                  Management and Development in both Rural and Urban areas. More
-                  specifically, our services can be grouped into the following
-                  department: Our professional services, i.e., Estate Surveying
-                  and Valuation, cover the following: <br />
-                  <Link href="/companyProfile" className="text-[#1C3988]">
-                    Read more...
-                  </Link>
+                  Our firm - Demola Otitoola and Associates is a Real Estate
+                  Consulting Organization established about Twenty-one (21)
+                  years ago. It is a firm of Chartered Estate Surveyors and
+                  Valuers registered under the Companies and Allied Matter
+                  Decree (1990) pursuant to section 659, and approved to carry
+                  out the below-mentioned pertinent and specialized consultancy
+                  services by the{" "}
+                  <span className="text-[#1C3988]">
+                    Estate Surveyors and Valuers Registration Board of Nigeria
+                    (ESVARBON). We maintain branches in Lagos, Ibadan, and
+                    Oshogbo.
+                  </span>
                 </p>
+                <div>
+                  <h3 className="text-xl font-bold">
+                    OUR SCOPE OF PROFESSIONAL SERVICES
+                  </h3>
+                  <p className="text-sm md:text-[17px]">
+                    We provide a wide range of services within the field of
+                    Estate Management and Development in both Rural and Urban
+                    areas. More specifically, our services can be grouped into
+                    the following department: Our professional services, i.e.,
+                    Estate Surveying and Valuation, cover the following: <br />
+                    <Link href="/companyProfile" className="text-[#1C3988]">
+                      Read more...
+                    </Link>
+                  </p>
+                </div>
               </div>
-            </div>
+            {/* </Card> */}
           </Fade>
         </section>
       </Layout>

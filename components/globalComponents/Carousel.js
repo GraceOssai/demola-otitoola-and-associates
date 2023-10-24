@@ -56,9 +56,8 @@ const Carousel = ({style}) => {
                         {property.description}
                       </p>
                       <div>
-                        <p className="text-[#1C3988]">#{property.amount}</p>
+                        <p className="text-primary-0">#{property.amount}</p>
                         <p className="text-[#141B2D]">{property.location}</p>
-                        {console.log(property.img)}
                       </div>
                     </div>
                   </Card>

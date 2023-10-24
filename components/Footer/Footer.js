@@ -47,8 +47,8 @@ const Footer = () => {
   };
  
   return (
-    <div className="bg-[#1C3988] mt-[100px] w-full">
-      <div className="w-full bg-[#F3F3FA] md:py-10">
+    <div className="bg-primary-0 mt-[100px] w-full">
+      <div className="w-full bg-secondary-0 py-10">
         <div className="flex justify-center gap-6 items-center px-5 md:flex-row">
           <div className="w-[100px] h-[100px] md:w-[217px] md:h-[217px]">
             <Image
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
         </div>
         <form
-          className="flex flex-col gap-3 w-[20rem] mx-auto md:flex-row md:w-full md:justify-center"
+          className="flex flex-col gap-3 max-w-[30rem] mx-auto px-5 mt-5 md:mt-0 md:flex-row md:w-full md:justify-center"
           onSubmit={emailSubscribeHandler}
         >
           <Input
@@ -82,7 +82,7 @@ const Footer = () => {
             className="w-[100%] h-[48px]"
           />
           <Button
-            newStyle="text-primary-0 border-[1px] border-primary-0 px-6 h-[48px] mb-6 md:mb-0"
+            newStyle="text-primary-0 border-[1px] border-primary-0 h-[48px] px-3 mb-6 md:mb-0"
             onClickBtn={emailSubscribeHandler}
           >
             Subscribe

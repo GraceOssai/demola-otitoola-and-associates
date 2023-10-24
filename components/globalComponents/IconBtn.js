@@ -14,6 +14,7 @@ const IconBtn = ({ IconBtnClick, text, src, className }) => {
           priority
           loading="eager"
           onClick={IconBtnClick}
+          alt={text}
         />
       </div>
       <span>{text}</span>

@@ -6,7 +6,7 @@ const IconInput = ({src, className}) => {
   return (
     <div className={`flex items-center bg-white ${className}`}>
       <div className="h-[22px] w-[15px] my-0 mx-[15px]">
-        <Image src={src} className="h-full w-full" priority loading="eager" />
+        <Image src={src} className="h-full w-full" priority loading="eager" alt='icon'/>
       </div>
       <input
         type="text"
