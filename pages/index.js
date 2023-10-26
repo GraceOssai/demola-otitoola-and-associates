@@ -4,7 +4,7 @@ import Image from "next/image";
 import heroImage from "../public/assets/images/heroImage.png";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
-import Fade from "react-reveal/Fade";
+// import Fade from "react-reveal/Fade";
 import SearchBar from "@/components/globalComponents/SearchBar";
 import Carousel from "@/components/globalComponents/Carousel";
 import Head from "next/head";
@@ -41,7 +41,7 @@ const HomePage = () => {
       </Head>
       <Layout>
         <section className="relative flex flex-col justify-between items-center py-[15px] px-5 h-max md:flex-row md:px-14">
-          <Fade left>
+          {/* <Fade left> */}
             <div className="w-full z-20 lg:w-[545px]">
               <h1 className="text-[2.05rem] text-[#1C3988] lg:text-[4.05rem] md:flex md:flex-col md:justify-center">
                 Modern Living <br /> for everyone
@@ -56,8 +56,8 @@ const HomePage = () => {
                 searchHandler={searchHandlerFtn}
               />
             </div>
-          </Fade>
-          <Fade right>
+          {/* </Fade> */}
+          {/* <Fade right> */}
             <div className=" relative z-0">
               <Image
                 src={heroImage}
@@ -66,7 +66,7 @@ const HomePage = () => {
                 height={557}
               />
             </div>
-          </Fade>
+          {/* </Fade> */}
         </section>
 
         <SearchBar
@@ -83,7 +83,7 @@ const HomePage = () => {
               className="h-full w-full object-cover"
             />
           </div>
-          <Fade right>
+          {/* <Fade right> */}
             {/* <Card className="bg-primary-0 w-auto rounded-2xl px-[15px] py-10 mx-5 text-center text-secondary-0 md:bg-white md:w-[650px] md:rounded-2xl md:text-black md:px-[25px] md:absolute md:top-36 md:right-12 md:bottom-32 md:mx-0"> */}
               <div className="flex flex-col gap-5 md:w-[50%]">
                 <h1 className="text-3xl md:text-5xl">About us</h1>
@@ -118,7 +118,7 @@ const HomePage = () => {
                 </div>
               </div>
             {/* </Card> */}
-          </Fade>
+          {/* </Fade> */}
         </section>
       </Layout>
     </>
