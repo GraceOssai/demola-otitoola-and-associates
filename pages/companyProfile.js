@@ -6,7 +6,7 @@ import aboutImg from "../public/assets/images/aboutImg.png";
 import Card from "@/components/globalComponents/Card";
 import Head from "next/head";
 
-const about = () => {
+const CompanyProfile = () => {
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ const about = () => {
           </div>
         </section>
         <section className="flex flex-col-reverse justify-center items-center gap-10 py-[40px] bg-secondary-0 md:px-14 md:py-[70px] md:bg-secondary-0 md:gap-12 md:flex-row md:justify-start md:relative">
-          <div className="h-[200px] w-[300px] md:h-[471px] md:w-[628px]">
+          <div className="h-[200px] w-[300px] md:h-[471px] md:w-1/2">
             <Image
               src={aboutImg}
               height={471}
@@ -113,4 +113,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default CompanyProfile;

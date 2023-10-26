@@ -4,7 +4,7 @@ import Input from "@/components/globalComponents/Input";
 import Button from "@/components/globalComponents/Button";
 import Head from "next/head";
 
-const contact = () => {
+const Contact = () => {
   const [fullNameState, setFullName] = useState("");
   const [phoneNumberState, setPhoneNumber] = useState("");
   const [emailState, setEmail] = useState("");
@@ -135,12 +135,12 @@ const contact = () => {
         <meta property="og:type" content="website" />
       </Head>
       <Layout>
-        <div className="border h-[100vh] w-full mt-[60px] bg-[url('../public/assets/images/mainAbout.png')] bg-cover bg-center object-cover">
-          <div className="w-full h-full pt-[25px] flex flex-col justify-center gap-[7px] items-center text-secondary-0 bg-primary-2">
+        <div className="border h-max w-full mt-[60px] bg-[url('../public/assets/images/mainAbout.png')] bg-cover bg-center object-cover">
+          <div className="w-full h-full py-[25px] flex flex-col justify-center gap-[7px] items-center text-secondary-0 bg-primary-2">
             <form
               action=""
               onSubmit={submitHandler}
-              className="flex flex-col justify-center items-center gap-6 max-w-[40rem] mx-auto mt-[150px] md:mt-0"
+              className="flex flex-col gap-6 max-w-[70rem] mt-[150px] md:mt-0"
             >
               <Input
                 onChange={fullNameHandler}
@@ -188,11 +188,13 @@ const contact = () => {
                 {checkBoxInputError && (
                   <div style={{ color: "red" }}>{checkBoxInputError}</div>
                 )}
-                <span className="text-secondary-0 font-bold">
+                <span className="text-secondary-0 font-bold text-xs md:text-[12px]">
                   I agree to the processing of data
                 </span>
               </div>
+              <div className="flex justify-center">
               <Button onClickBtn={submitHandler}>Send Message</Button>
+              </div>
             </form>
           </div>
         </div>
@@ -201,4 +203,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

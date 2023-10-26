@@ -4,12 +4,12 @@ import Input from '@/components/globalComponents/Input';
 import IconBtn from '@/components/globalComponents/IconBtn';
 import searchIconCircle from '../public/assets/svg/searchIconCircle.svg';
 import CustomSelectInput from '@/components/globalComponents/CustomSelectInput';
-// import PropertiesData from '../components/globalComponents/PropertiesData'
+import PropertiesData from '../components/globalComponents/PropertiesData'
 // import Card from '@/components/globalComponents/Card';
 // import Image from 'next/image';
 
 
-const properties = () => {
+const Properties = () => {
 
   const searchHandler = () => {
 
@@ -43,7 +43,7 @@ const properties = () => {
           <h1 className="flex justify-center items-center my-12 text-4">
             Filter settings
           </h1>
-          <div className="flex flex-col justify-center items-center gap-6 md:flex md:flex-row md:justify-center md:items-center md:gap-6">
+          <div className="flex flex-col justify-center items-center gap-6 max-w-[60rem] mx-auto px-2 md:flex md:flex-row md:justify-center md:items-center md:gap-6">
             <CustomSelectInput
               options={["Sale Option", "Sale Option 1", "Sale Option 2"]}
             />
@@ -69,7 +69,7 @@ const properties = () => {
         <section className="flex flex-wrap justify-center items-start gap-6 bg-secondary-0">
           <p className="text-sm md:text-[51.88px] md:text-red-700">Coming soon...</p>
           {/* {PropertiesData.map((property, index) => (
-          <Card key={index} className="h-auto mt-16 ">
+          <Card key={index} className="h-auto z-100 ">
             <Image
               src={property.img}
               width={391}
@@ -93,4 +93,4 @@ const properties = () => {
   );
 }
 
-export default properties
+export default Properties

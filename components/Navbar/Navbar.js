@@ -4,10 +4,13 @@ import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
 import { navLinks } from "./NavItems";
 import NavDropDown from "./NavDropDown";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const router = useRouter();
+  const activeLink = router.pathname
 
   const toggleMenu = (val) => {
     setMenuOpen(val);
@@ -74,18 +77,20 @@ const Navbar = () => {
         </div>
       )}
       {/* The list item on desktop screen */}
-      <div className="hidden lg:flex space-x-8 items-center cursor-pointer">
+      <div className="hidden md:flex space-x-8 items-center cursor-pointer">
         {navLinks.map((item, index) => {
+          const activeStyle = activeLink === item.link ? "border-b border-primary-0" : '';
           if (item.title === "About us") {
+            const activeStyle = activeLink.startsWith(item.link) ? "border-b border-primary-0" : '';
             return (
               <div key={index} onClick={mouseEnterHandler}>
-                <div onClick={() => mouseEnterHandler(true)}>{item.title}</div>
+                <div onClick={() => mouseEnterHandler(true)} className={activeStyle}>{item.title}</div>
                 {dropdown && <NavDropDown onClickHandler={toggleMenu} />}
               </div>
             );
           }
           return (
-            <Link key={index} href={item.link}>
+            <Link key={index} href={item.link} className={activeStyle}>
               {item.title}
             </Link>
           );

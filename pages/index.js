@@ -8,7 +8,7 @@ import Fade from "react-reveal/Fade";
 import SearchBar from "@/components/globalComponents/SearchBar";
 import Carousel from "@/components/globalComponents/Carousel";
 import Head from "next/head";
-import Card from "@/components/globalComponents/Card";
+// import Card from "@/components/globalComponents/Card";
 // import ImageSlider from "@/components/globalComponents/ImageSlider"; // Import ImageSlider
 
 const HomePage = () => {
@@ -40,9 +40,9 @@ const HomePage = () => {
         <meta property="og:type" content="website" />
       </Head>
       <Layout>
-        <section className="relative flex flex-col justify-between items-center py-[15px] px-5 md:flex-row md:px-14">
+        <section className="relative flex flex-col justify-between items-center py-[15px] px-5 h-max md:flex-row md:px-14">
           <Fade left>
-            <div className="w-full lg:w-[545px]">
+            <div className="w-full z-20 lg:w-[545px]">
               <h1 className="text-[2.05rem] text-[#1C3988] lg:text-[4.05rem] md:flex md:flex-col md:justify-center">
                 Modern Living <br /> for everyone
               </h1>
@@ -58,7 +58,7 @@ const HomePage = () => {
             </div>
           </Fade>
           <Fade right>
-            <div>
+            <div className=" relative z-0">
               <Image
                 src={heroImage}
                 alt={"hero-image"}
