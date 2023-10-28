@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import paperPlane from "../../public/assets/svg/paperPlane.svg";
 import Input from "../globalComponents/Input";
 import Button from "../globalComponents/Button";
@@ -51,7 +51,7 @@ const Footer = () => {
       <div className="w-full bg-secondary-0 py-10">
         <div className="flex justify-center gap-6 items-center px-5 md:flex-row">
           <div className="w-[100px] h-[100px] md:w-[217px] md:h-[217px]">
-            <Image
+            <img
               src={paperPlane}
               alt={"planePaper"}
               width={217}
@@ -91,7 +91,7 @@ const Footer = () => {
         </form>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <Image src={logo} alt={"logo"} width={120} height={63} />
+        <img src={logo} alt={"logo"} width={120} height={63} />
         <p className="text-white">Real Estate</p>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "@/components/globalComponents/Card";
 import Layout from "@/components/Layouts/Layout";
-import Image from "next/image";
+// import Image from "next/image";
 import ceoMain from "../public/assets/images/ceoMain.png";
 import Head from "next/head";
 
@@ -34,7 +34,7 @@ const CeoProfile = () => {
       <Layout>
         <div className="bg-secondary-0 h-auto flex flex-col items-center gap-6 py-10 px-5 lg:px-10 lg:flex-row lg:justify-between lg:items-center">
           <div className=" border-[10px] w-full border-grey-100 rounded-bl-[7rem] rounded-tr-[7rem] overflow-hidden md:border-[20px] md:h-[500px] md:w-[500px]">
-            <Image
+            <img
               src={ceoMain}
               height={400}
               width={500}

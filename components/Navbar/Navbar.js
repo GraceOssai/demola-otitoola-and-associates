@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import logo from "../../public/assets/images/logo.png";
 import { navLinks } from "./NavItems";
 import NavDropDown from "./NavDropDown";
@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center w-full border-b py-4 shadow-custom-shadow px-14 relative">
       <div className="h-[50px] w-[120px]">
-        <Image
+        <img
           src={logo}
           alt={"logo"}
           height={50}
