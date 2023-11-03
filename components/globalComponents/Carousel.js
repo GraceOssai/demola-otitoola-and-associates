@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropertiesData from "./PropertiesData";
 import Card from "./Card";
-// import Image from "next/image";
+import Image from "next/image";
+import Image from "next/image";
 
 const Carousel = ({style}) => {
   const [nextSlide, setNextSlide] = useState(0);
@@ -44,7 +45,7 @@ const Carousel = ({style}) => {
                 <div className="text-gray-2 px-3 mb-2 text-sm md:mb-14 md:text-lg md:px-0">
                   <Card className="rounded-2xl w-full bg-white mt-16 border md:w-[300px]">
                     {" "}
-                    <img
+                    <Image
                       src={property.img}
                       width={391}
                       height={259}

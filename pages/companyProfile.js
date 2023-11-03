@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/Layouts/Layout";
-// import Image from "next/image";
+import Image from "next/image";
 import heroImage from "../public/assets/images/heroImage.png";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Card from "@/components/globalComponents/Card";
@@ -43,7 +43,7 @@ const CompanyProfile = () => {
         </section>
         <section className="flex flex-col-reverse justify-center items-center gap-10 py-[40px] bg-secondary-0 md:px-14 md:py-[70px] md:bg-secondary-0 md:gap-12 md:flex-row md:justify-start md:relative">
           <div className="h-[200px] w-[300px] md:h-[471px] md:w-1/2">
-            <img
+            <Image
               src={aboutImg}
               height={471}
               width={628}
@@ -98,7 +98,7 @@ const CompanyProfile = () => {
               </ul>
             </Card>
             <div className="h-[300px] w-[100%] md:h-[400px] md:w-1/2">
-              <img
+              <Image
                 src={heroImage}
                 height={471}
                 width={628}

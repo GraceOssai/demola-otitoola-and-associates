@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/Layouts/Layout";
-// import Image from "next/image";
+import Image from "next/image";
 import heroImage from "../public/assets/images/heroImage.png";
 import aboutImg from "../public/assets/images/aboutImg.png";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import Fade from "react-reveal/Fade";
 import SearchBar from "@/components/globalComponents/SearchBar";
 import Carousel from "@/components/globalComponents/Carousel";
 import Head from "next/head";
+import Image from "next/image";
 // import Card from "@/components/globalComponents/Card";
 // import ImageSlider from "@/components/globalComponents/ImageSlider"; // Import ImageSlider
 
@@ -59,7 +60,7 @@ const HomePage = () => {
           </Fade>
           <Fade right>
             <div className=" relative z-0">
-              <img
+              <Image
                 src={heroImage}
                 alt={"hero-image"}
                 width={580}
@@ -77,7 +78,7 @@ const HomePage = () => {
 
         <section className="w-full px-5 flex flex-col justify-between gap-20 md:flex-row md:px-14">
           <div className="h-[200px] w-full md:h-[350px] md:w-[50%] lg:h-[471px]">
-            <img
+            <Image
               src={aboutImg}
               alt="about image"
               className="h-full w-full object-cover"
